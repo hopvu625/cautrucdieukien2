@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img onclick="change()" data-id="ronaldo" width="500" height="100" src="ronaldo1.jpg" id="ronaldo" alt="">
+<br>
+<img onclick="change2()" data-id="messi" width="500" height="100" src="Messi2.jpg" id="messi" alt="">
+<br>
+<img onclick="change3()" data-id="mbappe" width="500" height="100" src="mbappe3.jpg" id="mbappe" alt="">
+
+<script>
+    function change() {
+        let srcImage;
+        let valueDataid;
+        let nameDataID = document.getElementById('ronaldo').getAttribute('data-id');
+        switch (nameDataID) {
+            case 'ronaldo':
+                srcImage = 'Messi1.jpg';
+                valueDataid = 'messi';
+                break;
+            case 'messi':
+                srcImage = 'mbappe1.jpg';
+                valueDataid = 'mbappe';
+                break;
+            case 'mbappe':
+                srcImage = 'ronaldo1.jpg';
+                valueDataid = 'ronaldo';
+                break;
+        }
+        document.getElementById('ronaldo').setAttribute('src',srcImage);
+        document.getElementById('ronaldo').setAttribute('data-id',valueDataid);
+        checkWin()
+    }
+    function change2() {
+        let srcimage;
+        let valueDataid;
+        let nameDataID = document.getElementById('messi').getAttribute('data-id');
+        switch (nameDataID) {
+            case 'messi':
+                srcimage = 'mbappe2.jpg';
+                valueDataid = 'mbappe';
+                break;
+            case 'mbappe':
+                srcimage = 'Ronaldo2.jpg';
+                valueDataid = 'ronaldo';
+                break;
+            case 'ronaldo':
+                srcimage = 'Messi2.jpg';
+                valueDataid = 'messi';
+                break;
+        }
+        document.getElementById('messi').setAttribute('src',srcimage);
+        document.getElementById('messi').setAttribute('data-id',valueDataid);
+        checkWin()
+    }
+    function change3() {
+        let srcImage;
+        let valueDataid;
+        let nameDataID = document.getElementById('mbappe').getAttribute('data-id');
+        switch (nameDataID) {
+            case 'mbappe':
+                srcImage = 'Messi3.jpg';
+                valueDataid = 'messi';
+                break;
+            case 'messi':
+                srcImage = 'Ronaldo3.jpg';
+                valueDataid = 'ronaldo';
+                break;
+            case 'ronaldo':
+                srcImage = 'mbappe3.jpg';
+                valueDataid = 'mbappe';
+                break;
+        }
+        document.getElementById('mbappe').setAttribute('src',srcImage);
+        document.getElementById('mbappe').setAttribute('data-id',valueDataid);
+        checkWin()
+    }
+    function checkWin() {
+        let nameDataID1 = document.getElementById('ronaldo').getAttribute('data-id');
+        let nameDataID2 = document.getElementById('messi').getAttribute('data-id');
+        let nameDataID3 = document.getElementById('mbappe').getAttribute('data-id');
+        if(nameDataID1 === nameDataID2 && nameDataID2 === nameDataID3) {
+            document.getElementById('ronaldo').style.border = '3px soild brown';
+            document.getElementById('messi').style.border = '3px soild pink';
+            document.getElementById('mbappe').style.border = '3px soild blue';
+        }else {
+            document.getElementById('ronaldo').style.border ='';
+            document.getElementById('messi').style.border ='';
+            document.getElementById('mbappe').style.border ='';
+        }
+    }
+</script>
+</body>
+</html>
